@@ -75,7 +75,7 @@
     >
       <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
         <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-        <span class="hidden-sm-and-down">I'm not netflix</span>
+        <span class="hidden-sm-and-down">I'm not netflix v1</span>
       </v-toolbar-title>
       <v-text-field
         flat
