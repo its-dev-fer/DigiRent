@@ -72,10 +72,11 @@
       dark
       app
       fixed
+      style="background-color: rgba(0, 0, 0, 0.6) !important; backdrop-filter:blur(17px)"
     >
       <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
         <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-        <span class="hidden-sm-and-down">I'm not netflix v1</span>
+        <span class="hidden-sm-and-down">DigiRent</span>
       </v-toolbar-title>
       <v-text-field
         flat
@@ -108,7 +109,8 @@ export default {
       { icon: 'home', text: 'Inicio', redirects:'home'},
       { icon: 'attach_money', text: 'Dona a los desarrolladores', redirects:'donate'},
     ],
-    searchText: '',
+    searchText: ''
+
   }),
   methods:{
     search: function(){
