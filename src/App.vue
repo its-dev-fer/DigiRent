@@ -53,7 +53,7 @@
               </v-list-tile-content>
             </v-list-tile>
           </v-list-group>
-          <v-list-tile v-else :key="item.text">
+          <v-list-tile v-else :key="item.text" @click="$router.push({ name: item.redirects })">
             <v-list-tile-action>
               <v-icon>{{ item.icon }}</v-icon>
             </v-list-tile-action>
@@ -87,60 +87,25 @@
       ></v-text-field>
       <v-spacer></v-spacer>
     </v-toolbar>
-
     <v-content>
-      <v-container grid-list-md text-xs-center>
-        <v-layout row wrap>
-          <v-flex sm3 xs6
-            slot-scope="{ hover }"
-            v-for="card in catalogo"
-            :key="card.title"
-          >
-            <v-card class="elevation-4">
-              <v-img
-                :src="card.src"
-                max-height="400px"
-                height="400px"
-                :aspect-ratio="16/9"
-              >
-                <v-expand-transition>
-                  <div
-                    v-if="hover"
-                    class="d-flex transition-fast-in-fast-out orange darken-2 v-card--reveal display-3 white--text"
-                    style="height: 100%;"
-                  >
-                    <span class="headline white--text" v-text="card.title"></span>
-                  </div>
-                </v-expand-transition>
-              </v-img>
-            </v-card>
-          </v-flex>
-        </v-layout>
-      </v-container>
+      <router-view></router-view>
     </v-content>
   </v-app>
 </template>
-
 <script>
 import HelloWorld from './components/HelloWorld'
-
 export default {
   name: 'App',
   components: {
     HelloWorld
   },
-  data: () =>({
+  data:() => ({
     dialog: false,
     drawer: null,
     items: [
-      { icon: 'star', text: 'Estrenos' },
-      { icon: 'hd', text: 'Películas en 1080p' },
-      { icon:'4k', text: 'Películas en 4k' }
+      { icon: 'home', text: 'Inicio', redirects:'home'},
+      { icon: 'attach_money', text: 'Dona a los desarrolladores', redirects:'donate'},
     ],
-    catalogo: [
-      { title: 'Pelicula 1', src: 'https://images-na.ssl-images-amazon.com/images/I/81hkRNYQhNL._SY679_.jpg' },
-      { title: 'Pelicula 2', src: 'https://images-na.ssl-images-amazon.com/images/I/614rium%2BzxL._SY606_.jpg' }
-    ]
   })
 }
 </script>
