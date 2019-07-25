@@ -84,6 +84,8 @@
         prepend-inner-icon="search"
         label="Busca una película"
         class="hidden-sm-and-down"
+        v-model="searchText"
+        v-on:keyup.enter="search"
       ></v-text-field>
       <v-spacer></v-spacer>
     </v-toolbar>
@@ -106,6 +108,13 @@ export default {
       { icon: 'home', text: 'Inicio', redirects:'home'},
       { icon: 'attach_money', text: 'Dona a los desarrolladores', redirects:'donate'},
     ],
-  })
+    searchText: '',
+  }),
+  methods:{
+    search: function(){
+      this.$router.push({ name: 'search', params:{ 'movie':this.searchText }  })
+      this.searchText = ''
+    }
+  }
 }
 </script>

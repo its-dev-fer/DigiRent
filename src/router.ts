@@ -27,7 +27,7 @@ export default new Router({
       component: () => import('./views/Detalles.vue'),
     },
     {
-      path:'/search',
+      path:'/search/:movie',
       name: 'search',
       component: () => import('./views/Search.vue'),
     },
