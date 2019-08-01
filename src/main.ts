@@ -7,7 +7,8 @@ import './registerServiceWorker';
 
 import axios from 'axios'
 Vue.prototype.$axios = axios
-Vue.prototype.$API = "https://f04451ea.ngrok.io/api/v1/"
+Vue.prototype.$API = "https://b4dd6ae9.ngrok.io/api/v1/"
+Vue.prototype.$STRIPE_API = "https://be707bee.ngrok.io/api/v1/"
 Vue.config.productionTip = false;
 
 new Vue({

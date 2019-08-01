@@ -31,5 +31,20 @@ export default new Router({
       name: 'search',
       component: () => import('./views/Search.vue'),
     },
+    {
+      path: 'login',
+      name: 'login',
+      component: () => import('./views/Login.vue')
+    },
+    {
+      path: 'register',
+      name: 'register',
+      component: () => import('./views/Register.vue')
+    },
+    {
+      path: 'carrito',
+      name: 'carrito',
+      component: () => import('./views/Carrito.vue')
+    },
   ],
 });

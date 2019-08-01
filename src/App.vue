@@ -106,8 +106,10 @@ export default {
     dialog: false,
     drawer: null,
     items: [
+      { icon:'account_box', text: 'Iniciar sesión', redirects:'login' },
       { icon: 'home', text: 'Inicio', redirects:'home'},
       { icon: 'attach_money', text: 'Dona a los desarrolladores', redirects:'donate'},
+      { icon: 'shopping_cart', text: 'Tu carrito de compras', redirects:'carrito'},
     ],
     searchText: ''
 
@@ -116,6 +118,18 @@ export default {
     search: function(){
       this.$router.push({ name: 'search', params:{ 'movie':this.searchText }  })
       this.searchText = ''
+    }
+  },
+  created(){
+    const token = localStorage.getItem('auth')
+    if(!token)
+    {
+      this.$router.push({ name:'login' })
+    }
+    else
+    {
+      this.items[0].text = 'Sesión iniciada'
+      this.items[0].redirects = 'home'
     }
   }
 }

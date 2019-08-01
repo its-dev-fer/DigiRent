@@ -57,14 +57,22 @@ export default {
     ],
   }),
   created(){
-    this.fetchMovies()
+    const token = localStorage.getItem('auth')
+    if(!token)
+    {
+      this.$router.push({ name:'login' })
+    }
+    else
+    {
+      this.fetchMovies()
+    }
   },
   methods: {
       async fetchMovies()
       {
-        await this.$axios.get(`${this.$API}catalog`).then(
+        const token = localStorage.getItem('auth')
+        await this.$axios.get(`${this.$API}catalog?token=${token}`).then(
           (response) => {
-            console.log(response)
             response.data.catalog.forEach(movie => {
               this.catalogo.push({
                 id: movie.id,
